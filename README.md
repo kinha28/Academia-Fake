@@ -22,5 +22,5 @@ Check it out live: [Ritmo Quente on GitHub Pages](https://kinha28.github.io/Acad
 - Responsive across desktop, tablet, and mobile—menu hidden on mobile.
 - Styled pricing table with highlighted “Complete” plan, "Enroll Now" button and WhatsApp contact link.
 
-  ![Captura de tela do site Ritmo Quente](./print1.png)
-  ![Captura de tela do site Ritmo Quente](./print2.png)
+  ![Captura de tela do site Ritmo Quente](image/print1.png)
+  ![Captura de tela do site Ritmo Quente](image/print2.png)
