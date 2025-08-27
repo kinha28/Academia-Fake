@@ -1,0 +1,738 @@
+@import url('https://fonts.googleapis.com/css2?family=Caprasimo&family=Playwrite+HU:wght@100..400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* Garante que html e body ocupem toda a altura da tela */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  /* Remove as margens padrão do navegador */
+  padding-top: 2.5rem;
+  /* Cria um espaço no topo para o header fixo */
+  background: rgb(34, 34, 34);
+  /* Define a cor de fundo do site */
+  color: #fff;
+  /* Define a cor do texto como branco para melhor contraste */
+
+   display: flex;              /* Faz o body virar flex container */
+  flex-direction: column;     /* Coloca os elementos em coluna */
+}
+
+/* Faz o conteúdo crescer para empurrar o footer para baixo */
+main {
+  flex: 1;
+}
+
+header {
+  position: fixed;
+  /* Fixa o cabeçalho no topo da tela */
+  top: 0;
+  height: 20vh;
+  width: 100%;
+  /* Ocupa toda a largura da tela */
+  padding: 0.5rem 1rem;
+  /* Espaçamento interno: flexível para se adaptar ao tamanho da tela */
+  z-index: 1000;
+  /* Garante que fique por cima dos outros elementos */
+}
+
+.container {
+  margin-left: 5%;
+  width: 90%;
+  /* A largura ocupa 90% da tela, se adaptando a diferentes dispositivos */
+  max-width: 1200px;
+  /* Limita a largura máxima para não ficar muito esticado em telas grandes */
+  display: flex;
+  /* Torna o layout interno flexível (usado para alinhar os filhos lado a lado) */
+  justify-content: space-between;
+  /* Distribui os itens com espaço entre eles */
+  align-items: center;
+  /* Alinha os itens verticalmente ao centro */
+}
+
+.vermelho {
+  color: #ff4e50;
+  /* vermelho vibrante */
+}
+
+.amarelo {
+  color: #fbff00;
+  /* amarelo ouro/prateado */
+}
+
+.sublinha {
+  text-decoration: underline;
+}
+
+.letra-de-forma {
+  text-transform: uppercase;
+}
+
+.destaque-piscante {
+  font-weight: bold;
+  animation: piscarCor 1s infinite alternate;
+}
+
+/* Animação de troca de cor */
+@keyframes piscarCor {
+  0% {
+    color: #ff4e50;
+    /* vermelho */
+    text-shadow: 0 0 5px #ff4e50;
+  }
+
+  100% {
+    color: #f9d423;
+    /* amarelo */
+    text-shadow: 0 0 5px #f9d423;
+  }
+}
+
+.logo {
+  font-size: 1.75rem;
+  /* Tamanho da fonte: 1.75rem = aproximadamente 28px, mas se ajusta conforme o tamanho base do navegador */
+  font-weight: bold;
+  /* Deixa o texto em negrito */
+  animation: brilho 1s infinite alternate;
+  /* Aplica a animação 'brilho' com duração de 1s, repetindo infinitamente de forma alternada */
+  font-family: "Playwrite HU", cursive;
+  /* Define a fonte personalizada com uma fonte alternativa cursiva como reserva */
+}
+
+@keyframes brilho {
+  from {
+    text-shadow: 0 0 5px #fff, 0 0 10px #ff4e50, 0 0 15px #f9d423;
+  }
+
+  to {
+    text-shadow: 0 0 10px #fff, 0 0 20px #ff4e50, 0 0 30px #f9d423;
+  }
+}
+
+.menu a {
+  margin-left: 1.25rem;
+  /* Espaço à esquerda de cada link: 1.25rem = 20px, ajustável conforme o tamanho base da fonte */
+  text-decoration: none;
+  /* Remove o sublinhado dos links */
+  color: #fbff00;
+  /* Cor amarela para o texto do link */
+  font-weight: 700;
+  /* Fonte em negrito (peso forte) */
+  font-family: "Playwrite HU", cursive;
+  /* Fonte personalizada com uma alternativa cursiva */
+}
+
+.menu a:hover {
+  color: #ff4e50;
+  /* Altera a cor para vermelho/rosado ao passar o mouse */
+}
+
+.hero {
+  background-image: url('image/fundo.jpg');
+  background-size: cover;
+  /* imagem cobre toda a área */
+  background-position: center;
+  /* centraliza a imagem */
+  width: 100%;
+  height: 80vh;
+  /* altura é 80% da altura da tela visível */
+  display: flex;
+  /* ativa o Flexbox */
+  justify-content: center;
+  /* centraliza horizontalmente */
+  align-items: center;
+  /* centraliza verticalmente */
+  position: relative;
+  /* necessário para o ::before funcionar corretamente */
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* cobre toda a área do .hero */
+  background-color: rgba(0, 0, 0, 0.6);
+  /* camada escura sobre a imagem */
+  z-index: 1;
+  /* fica atrás do conteúdo */
+}
+
+.hero a {
+  letter-spacing: 0.3em;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  /* fica acima da camada escura */
+  color: #fff;
+}
+
+.hero-content h2 {
+  font-weight: normal !important;
+  letter-spacing: 0.3em !important;
+}
+
+
+.sobre {
+  padding: 5%;
+  text-align: center;
+}
+
+.sobre h2 {
+  margin-bottom: 3rem;
+  text-align: center;
+  /* Centraliza o texto horizontalmente */
+  font-family: "Playwrite HU", cursive;
+  /* Define a fonte personalizada para o título */
+  /* Margem inferior para separar o título do conteúdo abaixo */
+  color: #f9d423;
+  /* Cor do texto com tom amarelo vibrante */
+  /* Sombra suave em volta do texto para dar destaque */
+  text-shadow: 0 0 0.625rem #ff4e50;
+  /* Sombra vermelha com desfoque em rem para escalabilidade */
+}
+
+/* Estilização para o parágrafo dentro da seção .sobre */
+.sobre p {
+  font-family: "Poppins", sans-serif;
+  /* Fonte sem serifa para melhor legibilidade no parágrafo */
+  text-align: center;
+  /* Centraliza o texto do parágrafo */
+  font-size: 1.4rem;
+  /* Tamanho da fonte relativo, 1.4rem = 22.4px se fonte raiz for 16px */
+  line-height: 1.8;
+  /* Espaçamento entre linhas para facilitar a leitura */
+  letter-spacing: 0.125rem;
+  /* Espaço entre letras para um efeito mais aberto, 0.125rem ≈ 2px */
+}
+
+.aulas {
+  padding: 3%;
+  /* Espaçamento interno: 10% nas laterais para ser relativo à largura da tela */
+  color: #fff;
+  /* Cor do texto branca para contraste */
+  text-align: center;
+  /* Centraliza o texto dentro da seção */
+}
+
+.aulas h2 {
+  font-family: "Playwrite HU", cursive;
+  /* Fonte personalizada para título */
+  margin-bottom: 5rem;
+  /* Margem inferior para separar do conteúdo abaixo (40px ≈ 2.5rem) */
+  color: #f9d423;
+  /* Cor amarela vibrante */
+  text-shadow: 0 0 0.625rem #ff4e50;
+  /* Sombra vermelha suave (10px ≈ 0.625rem) */
+}
+
+.cards {
+  display: flex;
+  /* Usa flexbox para alinhar os cards em linha */
+  flex-wrap: wrap;
+  /* Permite quebra de linha quando não couber horizontalmente */
+  gap: 1.875rem;
+  /* Espaço entre cards (30px ≈ 1.875rem) */
+  justify-content: center;
+  /* Centraliza os cards no container */
+}
+
+.card {
+  background-color: #1e1e1e;
+  /* Fundo escuro */
+  border: 2px solid transparent;
+  /* Borda inicial invisível, para animar no hover */
+  border-radius: 0.75rem;
+  /* Bordas arredondadas (12px ≈ 0.75rem) */
+  padding: 1.875rem 1.25rem;
+  /* Espaçamento interno (30px e 20px convertidos para rem) */
+  width: 17.5rem;
+  /* Largura fixa em rem (280px ≈ 17.5rem) */
+  transition: 0.2s;
+  /* Transição suave para hover */
+  box-shadow: 0 0 0.625rem rgba(255, 255, 255, 0.05);
+  /* Sombra leve */
+}
+
+/* Título dentro do card */
+.card h3 {
+  font-family: "Poppins", sans-serif;
+  /* Fonte sem serifa */
+  color: #ff4e50;
+  /* Cor vermelha */
+  font-size: 1.5rem;
+  /* 24px = 1.5rem */
+  margin-bottom: 0.625rem;
+  /* 10px = 0.625rem */
+}
+
+/* Parágrafo dentro do card */
+.card p {
+  font-family: "Poppins", sans-serif;
+  color: #ddd;
+  /* Cinza claro */
+  font-size: 1rem;
+  /* 16px = 1rem */
+  line-height: 1.5;
+  /* Espaço entre linhas para facilitar a leitura */
+}
+
+/* Efeito ao passar o mouse */
+.card:hover {
+  border-color: #f9d423;
+  /* Muda a cor da borda para amarelo */
+  transform: scale(1.05);
+  /* Aumenta levemente o card */
+  box-shadow: 0 0 1.25rem #f9d42366;
+  /* Sombra amarela mais forte (20px ≈ 1.25rem) */
+}
+
+.videos {
+  padding: 10%;
+  /* Espaçamento interno: 100px = 10% nas laterais */
+  text-align: center;
+  /* Centraliza todo o conteúdo */
+  color: #fff;
+  /* Cor do texto branca */
+}
+
+.videos h2 {
+  font-family: "Playwrite HU", cursive;
+  /* Fonte personalizada para o título */
+  color: #f9d423;
+  /* Cor amarela vibrante */
+  margin-bottom: 5rem;
+  /* Espaço abaixo do título */
+  text-shadow: 0 0 0.625rem #ff4e50;
+  /* Sombra vermelha suave no texto (10px ≈ 0.625rem) */
+}
+
+.video-grid {
+  display: flex;
+  /* Usa Flexbox para alinhar os vídeos lado a lado */
+  flex-wrap: wrap;
+  /* Permite que quebrem linha em telas menores */
+  gap: 1.875rem;
+  /* Espaço entre os vídeos (30px ≈ 1.875rem) */
+  justify-content: center;
+  /* Centraliza os vídeos dentro do grid */
+}
+
+.video iframe {
+  width: 21.875rem;
+  /* Largura fixa de 350px ≈ 21.875rem */
+  height: 12.5rem;
+  /* Altura de 200px ≈ 12.5rem */
+  border-radius: 0.625rem;
+  /* Arredonda os cantos (10px ≈ 0.625rem) */
+  box-shadow: 0 0 1.25rem rgba(255, 255, 255, 0.1);
+  /* Sombra suave ao redor do vídeo */
+  transition: transform 0.3s ease;
+  /* Animação suave ao passar o mouse */
+}
+
+.video iframe:hover {
+  transform: scale(1.05);
+  /* Aumenta o vídeo ao passar o mouse */
+  box-shadow: 0 0 1.5625rem #f9d423;
+  /* Sombra mais forte ao passar o mouse (25px ≈ 1.5625rem) */
+}
+
+.secao-planos {
+  text-align: center;
+  /* Centraliza todo o conteúdo da seção */
+}
+
+.titulo {
+  font-family: "Playwrite HU", cursive;
+  /* Fonte decorativa para o título */
+  margin-bottom: 5rem;
+  color: #f9d423;
+  /* Cor amarela chamativa */
+  text-shadow: 0 0 0.625rem #ff4e50;
+  /* Sombra rosa/vermelha leve no texto */
+}
+
+.tabela-wrapper {
+  overflow-x: auto;
+  /* Garante que a tabela seja rolável lateralmente em telas pequenas */
+}
+
+.tabela-planos {
+  width: 100%;
+  /* Ocupa toda a largura possível */
+  max-width: 50rem;
+  /* Limite máximo de largura (800px = 50rem) */
+  margin: 0 auto;
+  /* Centraliza horizontalmente */
+  border-collapse: collapse;
+  /* Remove espaçamento entre células da tabela */
+  border-radius: 0.625rem;
+  /* Arredonda bordas da tabela (10px = 0.625rem) */
+  overflow: hidden;
+  /* Esconde conteúdo que ultrapassar a borda arredondada */
+  box-shadow: 0 0.25rem 0.9375rem rgba(0, 0, 0, 0.1);
+  /* Sombra externa (4px e 15px em rem) */
+  background-color: #1e1e1e;
+  /* Fundo escuro para contraste */
+}
+
+.tabela-planos thead {
+  background-color: #f9d423;
+  /* Cabeçalho amarelo */
+  color: white;
+  /* Texto branco */
+}
+
+.tabela-planos th,
+.tabela-planos td {
+  padding: 1rem;
+  /* 16px = 1rem */
+  text-align: center;
+  /* Centraliza o conteúdo das células */
+  font-size: 1em;
+  /* Tamanho de fonte padrão */
+}
+
+.tabela-planos tbody tr {
+  border-bottom: 1px solid #eee;
+  /* Linha de separação entre as linhas da tabela */
+}
+
+.tabela-planos tbody tr:hover {
+  background-color: #fff0f5;
+  /* Destaque ao passar o mouse */
+  transition: 0.3s;
+  /* Animação suave */
+}
+
+.destaque {
+  background-color: #1e1e1e;
+  /* Fundo escuro para destacar uma linha/célula */
+  font-weight: bold;
+  /* Deixa o texto em negrito */
+  position: relative;
+  /* Permite posicionamento absoluto de elementos internos se necessário */
+}
+
+.selo {
+  display: inline-block;
+  /* Permite aplicar padding e margem */
+  background-color: #ff4e50;
+  /* Vermelho/rosa forte */
+  color: white;
+  /* Texto branco */
+  font-size: 0.75em;
+  /* Tamanho proporcional ao elemento pai */
+  padding: 0.25rem 0.5rem;
+  /* 4px e 8px em rem */
+  border-radius: 0.625rem;
+  /* Arredondamento (10px = 0.625rem) */
+  margin-left: 0.5rem;
+  /* Espaço entre o selo e o texto (8px = 0.5rem) */
+}
+
+.rodape {
+  background-color: #111;
+  /* Fundo preto */
+  color: #fff;
+  /* Texto branco */
+  text-align: center;
+  /* Centraliza o conteúdo */
+  padding: 1.25rem 0.625rem;
+  /* 20px e 10px em rem */
+  margin-top: 2.5rem;
+  /* 40px = 2.5rem */
+  font-family: 'Montserrat', sans-serif;
+  /* Fonte limpa e moderna */
+}
+
+.hero {
+  margin-top: 2rem;
+  /* espaço acima da seção (2rem = 2x o tamanho da fonte base) */
+  background-image: url('image/fundo.jpg');
+  background-size: cover;
+  /* imagem cobre toda a área */
+  background-position: center;
+  /* centraliza a imagem */
+  height: 120vh;
+  /* altura é 80% da altura da tela visível */
+  display: flex;
+  /* ativa o Flexbox */
+  justify-content: center;
+  /* centraliza horizontalmente */
+  align-items: center;
+  /* centraliza verticalmente */
+  text-align: center;
+  position: relative;
+  /* necessário para o ::before funcionar corretamente */
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* cobre toda a área do .hero */
+  background-color: rgba(0, 0, 0, 0.6);
+  /* camada escura sobre a imagem */
+  z-index: 1;
+  /* fica atrás do conteúdo */
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  /* fica acima da camada escura */
+  color: #fff;
+}
+
+.hero-content h2 {
+  letter-spacing: 0.2rem;
+  /* espaço entre letras */
+  font-size: 2rem;
+  /* tamanho da fonte flexível */
+  margin-bottom: 1.5rem;
+  /* espaço abaixo do título */
+  text-shadow: 0 0 10px #ff4e50;
+  /* brilho ao redor do texto */
+  color: #fbff00;
+  /* amarelo vibrante */
+  font-family: "Caprasimo", serif;
+}
+
+.btn {
+  display: inline-block;
+  /* Permite ajustar o tamanho do botão e ficar ao lado de outros elementos */
+  padding: 0.75em 1.75em;
+  /* Espaçamento interno: vertical e horizontal em 'em' para escalar com a fonte */
+  font-size: 1em;
+  /* Tamanho da fonte relativo ao elemento pai */
+  font-weight: bold;
+  /* Deixa o texto em negrito */
+  color: #fff;
+  /* Cor do texto branca */
+  background: linear-gradient(45deg, #ff4e50, #f9d423);
+  /* Degradê com duas cores */
+  border: none;
+  /* Remove borda padrão */
+  border-radius: 2em;
+  /* Bordas arredondadas em unidade flexível */
+  text-decoration: none;
+  /* Remove sublinhado do link */
+  cursor: pointer;
+  /* Mostra cursor de clique */
+  position: relative;
+  /* Necessário para posicionar o brilho com ::before */
+  overflow: hidden;
+  /* Esconde o brilho que sai da área do botão */
+  animation: pulsar 1.5s infinite;
+  /* Animação pulsando continuamente */
+  transition: transform 0.3s ease;
+  /* Suaviza o efeito de aumento no hover */
+}
+
+.btn::before {
+  content: "";
+  /* Cria um elemento visual sem conteúdo */
+  position: absolute;
+  /* Posicionamento em relação ao botão */
+  top: 0;
+  left: -100%;
+  /* Começa fora do botão à esquerda */
+  width: 100%;
+  /* Mesmo tamanho do botão */
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  /* Brilho translúcido branco */
+  transform: skewX(-45deg);
+  /* Inclinação do brilho */
+  transition: left 0.5s;
+  /* Suaviza o movimento do brilho */
+  z-index: 1;
+  /* Garante que o brilho fique por cima do fundo */
+}
+
+.btn:hover::before {
+  left: 100%;
+  /* Move o brilho para a direita ao passar o mouse */
+}
+
+.btn:hover {
+  transform: scale(1.08);
+  /* Aumenta o botão levemente ao passar o mouse */
+}
+
+
+/* Animação de pulsar */
+@keyframes pulsar {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 78, 80, 0.7);
+  }
+
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px 10px rgba(255, 78, 80, 0.2);
+  }
+
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 78, 80, 0);
+  }
+}
+
+.rodape a {
+  color: #f2c94c;
+  /* Cor dourada */
+  text-decoration: none;
+  /* Remove sublinhado */
+}
+
+.rodape a:hover {
+  text-decoration: underline;
+  /* Mostra sublinhado ao passar o mouse */
+}
+
+.container-rodape {
+  max-width: 62.5rem;
+  /* 1000px = 62.5rem */
+  margin: 0 auto;
+  /* Centraliza o container */
+}
+
+.formulario {
+  max-width: 31.25rem;
+  /* 500px = 31.25rem */
+  margin: 3.125rem auto;
+  /* 50px = 3.125rem */
+  padding: 1.25rem;
+  /* 20px = 1.25rem */
+  background-color: #fff;
+  /* fundo branco */
+  border-radius: 0.625rem;
+  /* 10px = 0.625rem */
+  box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.1);
+  /* Sombra suave */
+}
+
+.formulario h2 {
+  text-align: center;
+  font-family: "Playwrite HU", cursive;
+  color: #1e1e1e;
+  margin-bottom: 2.5rem;
+  /* 40px = 2.5rem */
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9375rem;
+  /* 15px = 0.9375rem */
+}
+
+form input,
+form select,
+form button {
+  padding: 0.625rem;
+  /* 10px = 0.625rem */
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  /* 8px = 0.5rem */
+  font-size: 1rem;
+}
+
+form button {
+  background-color: #f2c94c;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+form button:hover {
+  background-color: #ff4e50;
+}
+
+.matricula h1 {
+
+  text-align: center;
+  font-family: "Playwrite HU", cursive;
+  margin-bottom: 2.5rem;
+  /* 40px = 2.5rem */
+  color: #f9d423;
+  text-shadow: 0 0 0.625rem #ff4e50;
+  /* Sombra leve */
+}
+
+footer {
+  background-color: #111;
+  /* cor de fundo escura */
+  color: #fff;
+  /* texto branco */
+  text-align: center;
+  padding: 1.25rem 0.625rem;
+  /* 20px e 10px */
+  margin-top: 2.5rem;
+  /* 40px */
+  font-family: 'Montserrat', sans-serif;
+}
+
+.voltar-inicio {
+  text-align: center;
+  margin-top: 1.875rem;
+  /* 30px */
+}
+
+.voltar-inicio a {
+  display: inline-block;
+  background-color: #ff9800;
+  /* Cor principal */
+  color: white;
+  padding: 0.625rem 1.25rem;
+  /* 10px e 20px */
+  text-decoration: none;
+  border-radius: 0.5rem;
+  /* 8px */
+  box-shadow: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.1);
+  /* sombra suave */
+  transition: background-color 0.3s ease;
+}
+
+.voltar-inicio a:hover {
+  background-color: #ff4e50;
+}
+
+/* ===== Tablet (até 1024px) ===== */
+@media (max-width: 1024px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas */
+  }
+
+  .video-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ===== Mobile (até 768px) ===== */
+@media (max-width: 768px) {
+  
+  .menu {
+    display: none;
+  }
+
+  .hero-content h2 {
+    font-size: 22px;
+    text-align: center;
+  }
+
+  .cards {
+    grid-template-columns: 1fr; /* 1 coluna */
+  }
+
+  .video-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tabela-planos {
+    font-size: 14px;
+  }
+}
